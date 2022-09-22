@@ -1,4 +1,3 @@
-
 function generator(matLen, gr, grEat) {
     let matrix = [];
     for (let i = 0; i < matLen; i++) {
