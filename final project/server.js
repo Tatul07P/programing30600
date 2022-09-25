@@ -73,13 +73,13 @@ io.sockets.emit('send matrix', matrix)
  buysArr = []
  buysEaterArr = []
 
-Grass = require("./Grass")
+Grass = require("./grass")
 GrassEater = require("./GrassEater")
-Buys = require("./Buys")
-BuysEater = require("./BuysEater")
-Predator = require("./Predator")
+Buys = require("./buys")
+BuysEater = require("./buysEater")
+Predator = require("./predator")
 
-function createObject() {
+function createObject(matrix) {
     for (var y = 0; y < matrix.length; ++y) {
         for (var x = 0; x < matrix[y].length; ++x) {
             if (matrix[y][x] == 1) {
@@ -128,9 +128,12 @@ function game() {
     io.sockets.emit("send matrix", matrix);
 }
 
-setInterval(game, 1000)
+setInterval(game, 200)
+
+
+
 
 
 io.on('connection', function () {
-    createObject()
+    createObject(matrix)                                                
 })
